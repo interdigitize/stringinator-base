@@ -33,8 +33,12 @@ const indexOf = function(array, target, fromIndex=0) {
 };
 
 const isArrayLike = function(obj) {
-  // Your code goes here
+  if (obj.length !== undefined){
+    return true;
+  }
+  return false;
 };
+
 
 // The cornerstone of a functional library -- iterate all elements, pass each to a callback function.
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
