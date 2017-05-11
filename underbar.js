@@ -24,7 +24,12 @@ const last = function(array, n = 1) {
 
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 const indexOf = function(array, target, fromIndex=0) {
-  // Your code goes here
+  for(fromIndex; fromIndex <= array.length; fromIndex++){
+    if(array[fromIndex] === target){
+      return fromIndex;
+    }
+  }
+  return -1;
 };
 
 const isArrayLike = function(obj) {
