@@ -5,7 +5,10 @@ const identity = function(val) {
 
 // Returns the first n elements of the given array.
 const first = function(array, n = 1) {
-  // Your code goes here
+  if(n === 1){
+    return array.shift();
+  }
+  return array.splice(0, n);
 };
 
 // Returns the last n elements of the given array.
