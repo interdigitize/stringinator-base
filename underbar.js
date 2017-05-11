@@ -13,7 +13,13 @@ const first = function(array, n = 1) {
 
 // Returns the last n elements of the given array.
 const last = function(array, n = 1) {
-  // Your code goes here
+  if(n === 1){
+    return array.pop();
+  }
+  if(n >= array.length){
+    return array;
+  }
+  return array.splice((array.length - n), n);
 };
 
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
