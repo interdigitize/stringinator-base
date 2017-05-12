@@ -173,8 +173,22 @@ const filter = function(obj, callback=identity) {
 
 
 // Return object without the elements / object valuesthat were rejected by the callback.
-const reject = function(arr, callback=identity) {
-  // Your code goes here
+const reject = function(obj, callback=identity) {
+  const rejectedArr = [];
+  if(Array.isArray(obj)){
+    for(var i = 0; i < obj.length; i++) {
+      if(!callback(obj[i])){
+        rejectedArr.push(obj[i]);
+      }
+    }
+    return rejectedArr;
+  }
+  for(var property in obj){
+    if(!callback(obj[property])){
+      rejectedArr.push(obj[property]);
+    }
+  }
+  return rejectedArr;
 };
 
 // De-duplicates (de-dups) the elements / object values.
