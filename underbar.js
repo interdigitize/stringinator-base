@@ -79,9 +79,18 @@ const pluck = function(obj, key) {
 // is not given, the first element of the collection is used as the initial
 // value. The callback is invoked with four arguments:
 // (accumulator, value, index|key, collection).
+
 const reduce = function(obj, callback=identity, initialValue) {
-  // Your code goes here
+  // for(var i = 0; i < obj.length; i++){
+  //   callback()
+  // }
 };
+
+// if(Array.isArray(obj)){
+//   for(var i = 0; i < obj.length; i++){
+//     callback(total, obj[i]);
+//   }
+
 
 // Return true if the object contains the target.
 const contains = function(obj, target) {
@@ -119,13 +128,26 @@ const every = function(obj, callback=identity) {
       return false;
     }
   }
-  return true
+  return true;
 };
 
 
 // Return true if even 1 element / object value is accepted by the callback.
 const some = function(obj, callback=identity) {
-  // Your code goes here
+  if(Array.isArray(obj)){
+    for(var i = 0; i < obj.length; i++) {
+      if(callback(obj[i])) {
+        return true;
+      };
+    }
+    return false;
+  }
+  for(var property in obj){
+    if(callback(obj[property])) {
+      return true;
+    }
+  }
+  return false;
 };
 
 // Return an array with all elements / object values that are accepted by the callback.
