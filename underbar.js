@@ -51,6 +51,7 @@ const each = function(obj, callback=identity) {
 
 // Return the results of applying the callback to each element.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
 const map = function(obj, callback=identity) {
   const elementsAfterCallback = [];
   for(var i = 0; i < obj.length; i++){
@@ -59,7 +60,6 @@ const map = function(obj, callback=identity) {
   return elementsAfterCallback;
 };
 
-map([1, 2, 3, 4, 6], function(el){ el * el});
 
 // Return an array of the values of a certain property in the collection.
 // E.g. given an array of people objects, return an array of just their ages.
@@ -70,7 +70,6 @@ const pluck = function(obj, key) {
         selectedKeyValues.push(obj[property].age);
       }
   }
-
   return selectedKeyValues;
 };
 
@@ -86,7 +85,12 @@ const reduce = function(obj, callback=identity, initialValue) {
 
 // Return true if the object contains the target.
 const contains = function(obj, target) {
-  // Your code goes here
+  for(var i = 0; i < obj.length; i++){
+    if(obj[i] === target){
+      return true;
+    }
+  }
+  return false;
 };
 
 // Return true if all the elements / object values are accepted by the callback.
