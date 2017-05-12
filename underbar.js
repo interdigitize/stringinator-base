@@ -81,21 +81,31 @@ const pluck = function(obj, key) {
 // (accumulator, value, index|key, collection).
 
 const reduce = function(obj, callback=identity, initialValue) {
-  // for(var i = 0; i < obj.length; i++){
-  //   callback()
-  // }
-};
+  var reducedNum = parseInt(initialValue, 10);
+  if(reducedNum === undefined || isNaN(reducedNum)){
+    console.log("hi");
+    reducedNum = parseInt(obj[i], 10);
+  }
+  console.log('reducedNum: ', reducedNum);
+  if(Array.isArray(obj)){
+    for(var i = 0; i < obj.length; i++){
 
-// if(Array.isArray(obj)){
-//   for(var i = 0; i < obj.length; i++){
-//     callback(total, obj[i]);
-//   }
+      parseInt(callback(obj, (reducedNum, obj[i])), 10);
+    }
+    return reducedNum;
+  }
+  for(var property in obj){
+    if(obj[property] === target){
+      return true;
+    }
+  }
+  return reducedNum;
+};
 
 
 // Return true if the object contains the target.
 const contains = function(obj, target) {
   if(Array.isArray(obj)){
-    console.log('hi');
     for(var i = 0; i < obj.length; i++){
       if(obj[i] === target){
         return true;
@@ -104,7 +114,6 @@ const contains = function(obj, target) {
     return false;
   }
   for(var property in obj){
-    console.log(obj[property]);
     if(obj[property] === target){
       return true;
     }

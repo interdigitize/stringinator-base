@@ -16,27 +16,32 @@ const last = function(str, n) {
   if(lastChars.length === 1){
     return lastChars[lastChars.length - 1];
   }
-  return lastChars.join(''); //why is join not working? TypeError: firstChars.join is not a function
+  return lastChars.join('');
 };
 
 const removeChar = function(str, target) {
-  const strArr = str.split('');
-  console.log(_.reject(strArr, target));
-  return _.reject(strArr, target);
-
+  // const strArr = str.split('');
+  // var removedChar = _.reject(strArr, target);
+  // return removedChar;
 };
 
 const hasChar = function(str, target) {
-  const strArr = str.split('');
-  return _.some(strArr, n);
+  // const strArr = str.split('');
+  // return _.some(strArr, n);
 };
 
 const isOnlyDigits = function(str) {
-  // Your code goes here
+  const strArr = str.split('');
+
+  return _.every(strArr, char => typeof(parseInt(char, 10)) === 'number');
 };
 
 const filterToOnlyDigits = function(str) {
-  // Your code goes here
+  const strArr = str.split('');
+
+  console.log(strArr);
+  // var onlyDigits = _.filter(strArr, char => typeof(char) === 'number');
+  return strArr;
 };
 
 const truncateString = function(val, maxLength) {
