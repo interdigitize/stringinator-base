@@ -43,7 +43,10 @@ const isArrayLike = function(obj) {
 // The cornerstone of a functional library -- iterate all elements, pass each to a callback function.
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 const each = function(obj, callback=identity) {
-  // Your code goes here
+  for(var i = 0; i < obj.length; i++){
+    callback(obj[i], i, obj);
+  }
+  return obj;
 };
 
 // Return the results of applying the callback to each element.
