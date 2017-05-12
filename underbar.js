@@ -52,8 +52,14 @@ const each = function(obj, callback=identity) {
 // Return the results of applying the callback to each element.
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 const map = function(obj, callback=identity) {
-  // Your code goes here
+  const elementsAfterCallback = [];
+  for(var i = 0; i < obj.length; i++){
+    elementsAfterCallback.push(callback(obj[i], i, obj));
+  }
+  return elementsAfterCallback;
 };
+
+map([1, 2, 3, 4, 6], function(el){ el * el});
 
 // Return an array of the values of a certain property in the collection.
 // E.g. given an array of people objects, return an array of just their ages.
