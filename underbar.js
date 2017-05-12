@@ -152,8 +152,25 @@ const some = function(obj, callback=identity) {
 
 // Return an array with all elements / object values that are accepted by the callback.
 const filter = function(obj, callback=identity) {
-  // Your code goes here
+  const filteredArr = [];
+  if(Array.isArray(obj)){
+    for(var i = 0; i < obj.length; i++) {
+      if(callback(obj[i])){
+        filteredArr.push(obj[i]);
+      }
+    }
+    return filteredArr;
+  }
+  for(var property in obj){
+    if(callback(obj[property])){
+      filteredArr.push(obj[property]);
+    }
+  }
+  return filteredArr;
 };
+
+
+
 
 // Return object without the elements / object valuesthat were rejected by the callback.
 const reject = function(arr, callback=identity) {
@@ -162,7 +179,14 @@ const reject = function(arr, callback=identity) {
 
 // De-duplicates (de-dups) the elements / object values.
 const uniq = function(obj) {
-  // Your code goes here
+  const deDupped = [];
+  for(var i = 0; i < obj.length; i++){
+    if (obj[i] === obj[0]){
+      deDupped.push(obj[i]);
+    }
+
+  }
+  return deDupped;
 };
 
 
