@@ -85,13 +85,24 @@ const reduce = function(obj, callback=identity, initialValue) {
 
 // Return true if the object contains the target.
 const contains = function(obj, target) {
-  for(var i = 0; i < obj.length; i++){
-    if(obj[i] === target){
+  if(Array.isArray(obj)){
+    console.log('hi');
+    for(var i = 0; i < obj.length; i++){
+      if(obj[i] === target){
+        return true;
+      }
+    }
+    return false;
+  }
+  for(var property in obj){
+    console.log(obj[property]);
+    if(obj[property] === target){
       return true;
     }
   }
   return false;
 };
+
 
 // Return true if all the elements / object values are accepted by the callback.
 const every = function(obj, callback=identity) {
