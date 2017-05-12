@@ -1,21 +1,34 @@
 const _ = require('./underbar');
 
 const first = function(str, n) {
-  // Your code goes here
+  var strArr = str.split('');
+  var firstChars = _.first(strArr, n);
+  if(firstChars.length === 1){
+    return firstChars[0];
+  }
+  return firstChars.join('');
+
 };
 
 const last = function(str, n) {
-  // Your code goes here
+  var strArr = str.split('');
+  var lastChars = _.last(strArr, n);
+  if(lastChars.length === 1){
+    return lastChars[lastChars.length - 1];
+  }
+  return lastChars.join(''); //why is join not working? TypeError: firstChars.join is not a function
 };
 
 const removeChar = function(str, target) {
-  // hint: use _.reject
-  // Your code goes here
+  const strArr = str.split('');
+  console.log(_.reject(strArr, target));
+  return _.reject(strArr, target);
+
 };
 
 const hasChar = function(str, target) {
-  // hint: use _.some
-  // Your code goes here
+  const strArr = str.split('');
+  return _.some(strArr, n);
 };
 
 const isOnlyDigits = function(str) {
