@@ -20,19 +20,19 @@ const last = function(str, n) {
 };
 
 const removeChar = function(str, target) {
-  // const strArr = str.split('');
-  // var removedChar = _.reject(strArr, target);
-  // return removedChar;
+  const strArr = str.split('');
+  var removedChar = _.reject(strArr, el => el === target);
+  return removedChar.join('');
 };
 
 const hasChar = function(str, target) {
-  // const strArr = str.split('');
-  // return _.some(strArr, n);
+  const strArr = str.split('');
+  var answer = _.some(strArr, el => el === target);
+  return answer;
 };
 
 const isOnlyDigits = function(str) {
   const strArr = str.split('');
-
   return _.every(strArr, char => typeof(parseInt(char, 10)) === 'number');
 };
 
