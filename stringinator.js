@@ -31,17 +31,22 @@ const hasChar = function(str, target) {
   return answer;
 };
 
+
+////////////FIX THIS
 const isOnlyDigits = function(str) {
   const strArr = str.split('');
-  return _.every(strArr, char => typeof(parseInt(char, 10)) === 'number');
+  console.log('strArr', strArr);
+  console.log('str', str);
+  return _.every(strArr, function(char){if(true){return char};});
 };
 
 const filterToOnlyDigits = function(str) {
   const strArr = str.split('');
-
-  console.log(strArr);
-  // var onlyDigits = _.filter(strArr, char => typeof(char) === 'number');
-  return strArr;
+  var onlyDigits = _.filter(strArr, char => !isNaN(char) && char !== " ");
+  if(onlyDigits.length === 1){
+    return onlyDigits[0];
+  }
+  return onlyDigits.join('');
 };
 
 const truncateString = function(val, maxLength) {
