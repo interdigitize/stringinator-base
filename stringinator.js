@@ -48,23 +48,38 @@ const filterToOnlyDigits = function(str) {
   return onlyDigits.join('');
 };
 
+
 const truncateString = function(val, maxLength) {
   // A freebie solution, this is the ONLY method here that doesn't use Underbar.
   return String(val).slice(0, maxLength);
 };
+
 
 const truncateLongItems = function(obj, maxLength) {
   // hint: use truncateString above
   // Your code goes here
 };
 
+
 const countChars = function(str) {
-  // Your code goes here
+  const strArr = str.split('');
+  const charTotals = {};
+  var charCounting = function(char){
+    if(charTotals.hasOwnProperty(char)){
+      charTotals[char] += 1;
+    } else {
+      charTotals[char] = 1;
+    }
+  };
+  _.each(strArr, charCounting);
+  return charTotals;
 };
+
 
 const dedup = function(str) {
   // Your code goes here
 };
+
 
 module.exports = {
   first: first,
