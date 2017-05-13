@@ -32,13 +32,12 @@ const hasChar = function(str, target) {
 };
 
 
-////////////FIX THIS
 const isOnlyDigits = function(str) {
   const strArr = str.split('');
-  console.log('strArr', strArr);
-  console.log('str', str);
-  return _.every(strArr, function(char){if(true){return char};});
+  var onlyDigits = _.every(strArr, char => !isNaN(char));
+  return onlyDigits;
 };
+
 
 const filterToOnlyDigits = function(str) {
   const strArr = str.split('');
