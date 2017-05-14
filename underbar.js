@@ -73,6 +73,7 @@ const pluck = function(obj, key) {
   return selectedKeyValues;
 };
 
+
 // Reduces collection to a value which is the accumulated result of running
 // each element through the callback, where each successive
 // invocation is supplied the return value of the previous invocation. If `accumulator`
@@ -80,26 +81,26 @@ const pluck = function(obj, key) {
 // value. The callback is invoked with four arguments:
 // (accumulator, value, index|key, collection).
 
-////////////FIX THIS
 
 const reduce = function(obj, callback=identity, initialValue) {
   var reducedNum = parseInt(initialValue, 10);
-  if(reducedNum === undefined || isNaN(reducedNum)){
-    reducedNum = parseInt(obj[0], 10);
-  }
-  console.log(reducedNum);
   if(Array.isArray(obj)){
-    for(var i = 0; i < obj.length; i++){
-      parseInt(callback(obj, (reducedNum, obj[i])), 10);
+    if(reducedNum === undefined || isNaN(reducedNum)){
+      reducedNum = parseInt(obj[0], 10);
+      for(var i = 1; i < obj.length; i++){
+        reducedNum = parseInt(callback(reducedNum, obj[i]), 10);
+      }
+    } else {
+      for(var i = 0; i < obj.length; i++){
+        reducedNum = parseInt(callback(reducedNum, obj[i]), 10);
+      }
     }
     return reducedNum;
   }
-  for(var property in obj){
-    if(obj[property] === target){
-      return true;
-    }
-  }
-  return reducedNum;
+  // for(var property in obj){
+  //
+  // }
+  // return reducedNum;
 };
 
 
@@ -158,6 +159,7 @@ const some = function(obj, callback=identity) {
   }
   return false;
 };
+
 
 // Return an array with all elements / object values that are accepted by the callback.
 const filter = function(obj, callback=identity) {
