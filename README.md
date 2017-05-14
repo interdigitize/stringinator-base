@@ -1,6 +1,6 @@
 # Stringinator
 
-A rebuild of Underbar functions, as well as Jest tests for each function, used to build **Stringinator** — a small collection of string utilities.
+A small collection of string utilities using a rebuild of Underbar functions, as well as Jest tests for each function.
 
 
 ## Running individual tests
@@ -14,7 +14,7 @@ npm install --save-dev jest-cli
 To just run one test file:
 
 ```
-npm test countChars
+npm test `testname`
 ```
 
 That will do a partial match on the string and find the matching test and run it.
