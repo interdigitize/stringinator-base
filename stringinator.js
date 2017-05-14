@@ -77,9 +77,10 @@ const countChars = function(str) {
   return charTotals;
 };
 
-
 const dedup = function(str) {
-  // Your code goes here
+  const strArr = str.split('');
+  const deDupped = _.uniq(strArr);
+  return deDupped.join('');
 };
 
 
