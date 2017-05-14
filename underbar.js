@@ -80,16 +80,16 @@ const pluck = function(obj, key) {
 // value. The callback is invoked with four arguments:
 // (accumulator, value, index|key, collection).
 
+////////////FIX THIS
+
 const reduce = function(obj, callback=identity, initialValue) {
   var reducedNum = parseInt(initialValue, 10);
   if(reducedNum === undefined || isNaN(reducedNum)){
-    console.log("hi");
-    reducedNum = parseInt(obj[i], 10);
+    reducedNum = parseInt(obj[0], 10);
   }
-  console.log('reducedNum: ', reducedNum);
+  console.log(reducedNum);
   if(Array.isArray(obj)){
     for(var i = 0; i < obj.length; i++){
-
       parseInt(callback(obj, (reducedNum, obj[i])), 10);
     }
     return reducedNum;
@@ -179,8 +179,6 @@ const filter = function(obj, callback=identity) {
 };
 
 
-
-
 // Return object without the elements / object valuesthat were rejected by the callback.
 const reject = function(obj, callback=identity) {
   const rejectedArr = [];
@@ -200,16 +198,24 @@ const reject = function(obj, callback=identity) {
   return rejectedArr;
 };
 
+
 // De-duplicates (de-dups) the elements / object values.
 const uniq = function(obj) {
-  const deDupped = [];
-  for(var i = 0; i < obj.length; i++){
-    if (obj[i] === obj[0]){
-      deDupped.push(obj[i]);
+  var deDuppedArr = [];
+  if(Array.isArray(obj)){
+    for(var i = 0; i < obj.length; i++) {
+      if(!contains(deDuppedArr, obj[i])){
+        deDuppedArr.push(obj[i]);
+      }
     }
-
+    return deDuppedArr;
   }
-  return deDupped;
+  for(var property in obj){
+    if(!contains(deDuppedArr, obj[property])){
+      deDuppedArr.push(obj[property]);
+    }
+  }
+  return rejectedArr;
 };
 
 
