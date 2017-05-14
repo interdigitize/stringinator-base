@@ -1,6 +1,6 @@
 # Stringinator
 
-A small collection of string utilities using a rebuild of Underbar functions, as well as Jest tests for each function.
+A small collection of string utilities using rebuilt Underbar functions (similar to Underscore.js), plus Jest tests for each function.
 
 
 ## Running individual tests
